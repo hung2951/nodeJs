@@ -1,31 +1,14 @@
-const http = require('http');
-const express = require('express');
+import express from 'express';
+import cors from 'cors';
+import productRoute from '../routes/product';
 const app = express();
 
 // middleware
-const check = (req, res, next) => {
-    const status = false;
-    if (status) {
-        console.log("hello");
-        next();
-    } else {
-        res.send('Không có quyền truy cập')
-    }
-}
-// app.use(check);
-// app.use((req, res) => {
-//     console.log("Bước 2");
-// })
-app.get('/', (req, res) => {
-    res.send('<h1>Home Page</h1>')
-})
-app.get('/api/products', check, (req, res) => {
-    const products = [
-        { id: 1, name: "Product A" },
-        { id: 2, name: "Product B" },
-    ];
-    res.json(products)
-})
+app.use(cors());
+app.use(express.json());
+
+app.use(productRoute);
+
 // const server = http.createServer((req, res) => {
 //     console.log('url', req.url);
 //     if (req.url === "/") {
