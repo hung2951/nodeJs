@@ -1,31 +1,25 @@
 import express from 'express';
 import cors from 'cors';
+import mongoose from 'mongoose';
+
 import productRoute from '../routes/product';
+import postRoute from '../routes/post'
 const app = express();
 
 // middleware
 app.use(cors());
 app.use(express.json());
+//route products
+app.use("/api", productRoute);
 
-app.use(productRoute);
+//route post
+app.use("/api", postRoute);
 
-// const server = http.createServer((req, res) => {
-//     console.log('url', req.url);
-//     if (req.url === "/") {
-//         res.setHeader('Content-Type', 'text/html');
-//         res.write("<html><body><h1>Home page</h1></body></html>");
-//         res.end();
-//     } else if (req.url === "/api/product") {
-//         const products = [
-//             { id: 1, name: "Product A" },
-//             { id: 2, name: "Product B" },
-//         ];
-//         res.end(JSON.stringify(products))
-//     }
-//     else {
-//         console.log("Đường dẫn không tồn tại");
-//     }
-// });
+// connect db
+mongoose.connect('mongodb://localhost:27017/we16309')
+    .then(() => console.log("Kết nối DB thành công"))
+    .catch((error) => console.log(error))
+//connect
 const PORT = 3001;
 app.listen(PORT, () => {
     console.log("Server is running port", PORT);
