@@ -1,6 +1,4 @@
-import mongoose from "mongoose";
-
-const Post = mongoose.model('Post', { title: String, img: String, desc: String });
+import Post from "../models/post";
 // danh sách
 export const listPost = async (req, res) => {
     try {
@@ -39,7 +37,7 @@ export const addPost = async (req, res) => {
 // update bài viết
 export const update = async (req, res) => {
     try {
-        const updatePost = await Post.findByIdAndUpdate(req.params.id, req.body);
+        const updatePost = await Post.findByIdAndUpdate(req.params.id, req.body, { new: true });
         res.json(updatePost)
     } catch (error) {
         res.status(400).json({

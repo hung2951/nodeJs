@@ -1,10 +1,4 @@
-// fake data
-// const products = [
-//     { id: 1, name: "Product A" },
-//     { id: 2, name: "Product B" },
-// ];
-import mongoose from "mongoose";
-const Product = mongoose.model('Product', { name: String, price: Number, img: String, desc: String });
+import Product from "../models/product";
 export const list = async (req, res) => {
     try {
         const ListProducts = await Product.find();
