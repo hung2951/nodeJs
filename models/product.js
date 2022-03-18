@@ -1,6 +1,5 @@
-
 import mongoose from "mongoose";
-import { Schema } from "mongoose";
+import { Schema, ObjectId } from "mongoose";
 
 const productSchema = new Schema({
     name: {
@@ -19,6 +18,10 @@ const productSchema = new Schema({
     desc: {
         type: String,
         required: true
+    },
+    category: {
+        type: ObjectId,
+        ref: "Category"
     }
 }, { timestamps: true })
 
