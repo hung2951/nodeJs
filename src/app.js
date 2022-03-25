@@ -4,9 +4,8 @@ import mongoose from 'mongoose';
 
 import productRoute from '../routes/product';
 import postRoute from '../routes/post';
-import userRoute from '../routes/user'
 import categoryRoute from '../routes/category'
-
+import userRoute from '../routes/auth'
 const app = express();
 
 // middleware
@@ -17,11 +16,10 @@ app.use("/api", productRoute);
 
 //route post
 app.use("/api", postRoute);
-//route user
-app.use('/api', userRoute)
 //route category
 app.use('/api', categoryRoute)
-
+//user
+app.use(userRoute)
 // connect db
 mongoose.connect('mongodb://localhost:27017/we16309')
     .then(() => console.log("Kết nối DB thành công"))
