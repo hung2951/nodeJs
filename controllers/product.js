@@ -17,7 +17,7 @@ export const post = async (req, res) => {
         res.json(product);
     } catch (error) {
         res.status(400).json({
-            message: "Không thêm được sản phẩm anh eiii"
+            message: "Không thêm được sản phẩm"
         })
     }
 

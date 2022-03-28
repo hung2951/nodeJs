@@ -1,4 +1,4 @@
-import User from '../models/user';
+import User from '../models/auth';
 export const userById = async (req, res, next, id) => {
     try {
         const user = await User.findById(id).exec();
