@@ -1,8 +1,11 @@
 import { Router } from "express";
-import { create, read } from "../controllers/category";
+import { create, list, read, remove, update } from "../controllers/category";
 const router = Router();
 
 router.post('/category', create);
-router.get('/category/:id', read)
+router.get('/product_by_cate/:id', read);
+router.get('/category', list);
+router.delete('/category/:id', remove);
+router.delete('/category/:id', update);
 
 export default router;
