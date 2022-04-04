@@ -57,3 +57,14 @@ export const remove = async (req, res) => {
     }
 
 }
+export const search = async (req, res) => {
+    try {
+        const searchString = req.query.q ? req.query.q : "";
+        const result = await Product.find({ $text: { $search: searchString } }).exec();
+        res.json(result)
+    } catch (error) {
+        res.status(400).json({
+            message: "Không tìm được sản phẩm anh eiii"
+        })
+    }
+}

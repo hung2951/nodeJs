@@ -11,9 +11,7 @@ export const signUp = async (req, res) => {
             })
         } else {
             const user = await new User({ name, email, password, role }).save();
-
             res.json({
-
                 user: {
                     _id: user._id,
                     email: user.email,

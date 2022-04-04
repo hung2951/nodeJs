@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { list, post, getProductById, remove, update } from "../controllers/product";
+import { list, post, getProductById, remove, update, search } from "../controllers/product";
 import { userById } from "../controllers/user";
 import { checkAuth, isAuth, isAdmin, requireSignin } from "../middlewares/checkAuth";
 const router = Router();
@@ -9,5 +9,6 @@ router.get('/product/:id', checkAuth, getProductById)
 router.post('/products/:userId', requireSignin, isAuth, isAdmin, post)
 router.put('/product/:id', checkAuth, update)
 router.delete('/product/:id', checkAuth, remove)
+router.get('/search', search)
 router.param('userId', userById)
 export default router;

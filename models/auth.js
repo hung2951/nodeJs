@@ -15,11 +15,11 @@ const userSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        default: 0
+        required: true
     },
     role: {
         type: Number,
-        required: true
+        default: 0
     }
 }, { timestamps: true });
 
