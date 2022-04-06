@@ -6,6 +6,6 @@ router.post('/category', create);
 router.get('/product_by_cate/:id', read);
 router.get('/category', list);
 router.delete('/category/:id', remove);
-router.delete('/category/:id', update);
+router.put('/category/:id', update);
 
 export default router;

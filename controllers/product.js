@@ -64,7 +64,7 @@ export const search = async (req, res) => {
         res.json(result)
     } catch (error) {
         res.status(400).json({
-            message: "Không tìm được sản phẩm anh eiii"
+            message: "Không tìm được sản phẩm "
         })
     }
 }
