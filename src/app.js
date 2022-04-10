@@ -26,11 +26,11 @@ app.use('/api', categoryRoute)
 //user
 app.use(userRoute)
 // connect db
-mongoose.connect('mongodb://localhost:27017/we16309')
+const CONNECT = 'mongodb+srv://hungtv2951:Hung2001@cluster0.ziaqf.mongodb.net/assignment-ts?retryWrites=true&w=majority'
+mongoose.connect(CONNECT)
     .then(() => console.log("Kết nối DB thành công"))
     .catch((error) => console.log(error))
 //connect
-// const MONGODB_CLOUD = "mongodb+srv://hung:hung@cluster0.c6egu.mongodb.net/dbname?retryWrites=true&w=majority";
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.log("Server is running port", PORT);
