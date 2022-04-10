@@ -1,15 +1,20 @@
 import express from 'express';
 import cors from 'cors';
 import mongoose from 'mongoose';
-
+import cloudinary from 'cloudinary'
 import productRoute from '../routes/product';
 import postRoute from '../routes/post';
 import categoryRoute from '../routes/category'
 import userRoute from '../routes/auth'
+require('dotenv').config()
 const app = express();
-
 // middleware
 app.use(cors());
+cloudinary.config({
+    cloud_name: "hungtv",
+    api_key: "652857589973265",
+    api_secret: "l3uDbRtL7O0Ew_C-nvHCFuXdL8A"
+});
 app.use(express.json());
 //route products
 app.use("/api", productRoute);

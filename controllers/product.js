@@ -1,4 +1,6 @@
+import { cloudinaryUpload } from "../config/cloudinary";
 import Product from "../models/product";
+import Formidable from 'formidable'
 export const list = async (req, res) => {
     try {
         const ListProducts = await Product.find();
@@ -67,4 +69,12 @@ export const search = async (req, res) => {
             message: "Không tìm được sản phẩm "
         })
     }
+}
+
+export const UploadImage = async (req, res) => {
+    const form = new Formidable.IncomingForm();
+    form.parse(req, async (err, fields, files) => {
+        const result = await cloudinaryUpload(files.image.filepath)
+        res.json(result)
+    })
 }

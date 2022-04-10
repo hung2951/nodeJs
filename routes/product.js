@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { list, post, getProductById, remove, update, search } from "../controllers/product";
+import { list, post, getProductById, remove, update, search, UploadImage } from "../controllers/product";
 import { userById } from "../controllers/user";
 import { isAuth, isAdmin, requireSignin } from "../middlewares/checkAuth";
 const router = Router();
@@ -11,4 +11,6 @@ router.put('/product/:id/:userId', requireSignin, isAuth, isAdmin, update)
 router.delete('/product/:id/:userId', requireSignin, isAuth, isAdmin, remove)
 router.post('/search', search)
 router.param('userId', userById)
+
+router.post('/upload-img', UploadImage);
 export default router;
