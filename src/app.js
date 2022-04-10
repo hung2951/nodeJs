@@ -30,7 +30,8 @@ mongoose.connect('mongodb://localhost:27017/we16309')
     .then(() => console.log("Kết nối DB thành công"))
     .catch((error) => console.log(error))
 //connect
-const PORT = 3001;
+// const MONGODB_CLOUD = "mongodb+srv://hung:hung@cluster0.c6egu.mongodb.net/dbname?retryWrites=true&w=majority";
+const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
     console.log("Server is running port", PORT);
 });
