@@ -26,8 +26,8 @@ app.use('/api', categoryRoute)
 //user
 app.use(userRoute)
 // connect db
-const CONNECT = 'mongodb+srv://hungtv2951:hung2001@cluster0.ziaqf.mongodb.net/assignment-ts?retryWrites=true&w=majority'
-mongoose.connect(CONNECT)
+// const CONNECT = 'mongodb+srv:// hungtv2951:hung2001@cluster0.ziaqf.mongodb.net/assignment-ts?retryWrites=true&w=majority'
+mongoose.connect("mongodb://localhost:27017/we16309")
     .then(() => console.log("Kết nối DB thành công"))
     .catch((error) => console.log(error))
 //connect
